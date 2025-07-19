@@ -5,9 +5,11 @@ export default function Dineout(){
         return (
 
            <>
-            <div className="text-2xl px-1.5 py-2.5  mt-20 container mx-auto w-[81%] font-bold">Discover best restaurants on Dineout</div>
-            <div className=" container mx-auto  w-[80%] overflow-x-auto py-4 px-5 [scrollbar-width:none]  ">
-                 <div className="grid grid-rows-1 grid-flow-col gap-5  px-5 w-max mx-2" >
+            <div className="text-xl md:text-2xl px-2 md:px-1.5 py-2 md:py-2.5 mt-12 md:mt-20 container mx-auto w-full md:w-[90%] lg:w-[81%] font-bold">
+                Discover best restaurants on Dineout
+            </div>
+            <div className="container mx-auto w-full md:w-[90%] lg:w-[80%] overflow-x-auto py-3 md:py-4 px-2 md:px-5 [scrollbar-width:none]">
+                 <div className="grid grid-rows-1 grid-flow-col gap-3 md:gap-5 px-2 md:px-5 w-max mx-1 md:mx-2">
                 {
                     dineoutOption.map((val)=>{
                         return (
@@ -18,8 +20,8 @@ export default function Dineout(){
                 }
             </div>
            </div>
-           <div className="mt-[80px]">
-                <img  src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png"></img>
+           <div className="mt-12 md:mt-[80px]">
+                <img className="w-full" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png"></img>
            </div>
            </>
         )

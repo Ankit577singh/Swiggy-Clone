@@ -6,21 +6,16 @@ import Simmer from "./simmer";
 import FilterNav from "./filternav";
 
 export default function Restaurent(){
-
-    const [newdata , setnewdata] = useState([]);
-    const [newdata2 , setnewdata2] = useState([]);
-
-    //  const [filteredData, setFilteredData] = useState([]);
+    const [newdata, setnewdata] = useState([]);
+    const [newdata2, setnewdata2] = useState([]);
 
     function Filter() {
         console.log("click");
-        // Create a sorted copy of the array
         const sortedData = [...newdata2].sort((a, b) => 
             b.info.avgRating - a.info.avgRating
         );
         setnewdata2(sortedData);
     }
-  
 
     useEffect(()=>{
         async function fetchData(){
@@ -34,52 +29,44 @@ export default function Restaurent(){
         }
         fetchData();
     },[]);
-    
-    // console.log(newdata2);
 
     if(newdata.length==0){
-        return (
-            <Simmer></Simmer>
-        )
+        return <Simmer></Simmer>
     }
+
     return (
         <>
-        <MainHeader></MainHeader>
+            <MainHeader></MainHeader>
+            <Food row={1} ms="ANKIT, what's on your mind?"></Food>
 
-        <Food row={1} ms="ANKIT, what's on your mind?"></Food>
-
-        <div className="text-2xl px-1.5 py-2.5  mt-20 container mx-auto w-[75%] font-bold ">Top restaurant chains in Bangalore</div>
-            <div className=" container mx-auto  w-[80%] overflow-x-auto py-4 px-5 [scrollbar-width:none] border-b-2 border-gray-300 ">
-                 <div className="grid grid-rows-1 grid-flow-col gap-5  px-5 w-max mx-2" >
-                {
-                newdata.map((val)=>{
-                    return (
-                       <RestaurantCard key={val.info.id} val = {val}></RestaurantCard>
-                    )
-                })
-            }
+            {/* Top Restaurant Chains Section */}
+            <div className="text-xl md:text-2xl px-2 py-2 md:px-1.5 md:py-2.5 mt-10 md:mt-20 container mx-auto w-full md:w-[90%] lg:w-[75%] font-bold">
+                Top restaurant chains in Bangalore
             </div>
+            <div className="container mx-auto w-full md:w-[90%] lg:w-[80%] overflow-x-auto py-4 px-2 md:px-5 [scrollbar-width:none] border-b-2 border-gray-300">
+                <div className="grid grid-rows-1 grid-flow-col gap-3 md:gap-5 px-2 md:px-5 w-max mx-1 md:mx-2">
+                    {newdata.map((val) => (
+                        <RestaurantCard key={val.info.id} val={val}></RestaurantCard>
+                    ))}
+                </div>
             </div>
 
-        <FilterNav Filter={Filter}></FilterNav>
+            <FilterNav Filter={Filter}></FilterNav>
 
-        <div className="text-2xl px-1.5 py-2.5  mt-5 container mx-auto w-[75%] font-bold">Restaurants with online food delivery in Bangalore</div>
-            <div className=" container mx-auto  w-[80%] flex flex-wrap py-4 px-5  ">
-                 <div className="flex flex-wrap gap-5  px-5 w-max mx-2">
-                {
-                newdata2.map((val)=>{
-                    return (
-                       <RestaurantCard key={val.info.id} val = {val}></RestaurantCard>
-                    )
-                })} {
-                newdata.map((val)=>{
-                    return (
-                       <RestaurantCard key={val.info.id} val = {val}></RestaurantCard>
-                    )
-                })
-            }
+            {/* Restaurants with Online Delivery Section */}
+            <div className="text-xl md:text-2xl px-2 py-2 md:px-1.5 md:py-2.5 mt-5 container mx-auto w-full md:w-[90%] lg:w-[75%] font-bold">
+                Restaurants with online food delivery in Bangalore
             </div>
-           </div>
-           </>
+            <div className="container mx-auto w-full md:w-[90%] lg:w-[80%] py-4 px-2 md:px-5">
+                <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-5 px-2 md:px-5 mx-1 md:mx-2">
+                    {newdata2.map((val) => (
+                        <RestaurantCard key={val.info.id} val={val}></RestaurantCard>
+                    ))}
+                    {newdata.map((val) => (
+                        <RestaurantCard key={val.info.id} val={val}></RestaurantCard>
+                    ))}
+                </div>
+            </div>
+        </>
     )
 }
