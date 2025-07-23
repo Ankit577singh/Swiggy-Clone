@@ -1,5 +1,8 @@
+import { Link } from "react-router";
+
 export default function RestaurantCard({val}){
     return (
+        <Link to={'/city/bangalore/'+val.info.id}>
         <div className="transition-transform duration-300 hover:scale-95 cursor-pointer min-w-[250px] xs:min-w-[260px] sm:min-w-[273px] max-w-[250px] xs:max-w-[260px] sm:max-w-[273px]">
             <div className="relative rounded-lg overflow-hidden">
                 <img 
@@ -29,5 +32,6 @@ export default function RestaurantCard({val}){
                 </div>
             </div>
         </div>
+        </Link>
     )
 }

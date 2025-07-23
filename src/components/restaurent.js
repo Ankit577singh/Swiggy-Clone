@@ -22,7 +22,7 @@ export default function Restaurent(){
             const ProxyServer = "https://cors-anywhere.herokuapp.com/";
             const swiggiapi = "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.9843304&lng=77.7326944&carousel=true&third_party_vendor=1";
             
-            const response = await fetch(ProxyServer + swiggiapi);
+            const response = await fetch(ProxyServer+swiggiapi);
             const data = await response.json();
             setnewdata(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
             setnewdata2(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
@@ -57,8 +57,8 @@ export default function Restaurent(){
             <div className="text-xl md:text-2xl px-2 py-2 md:px-1.5 md:py-2.5 mt-5 container mx-auto w-full md:w-[90%] lg:w-[75%] font-bold">
                 Restaurants with online food delivery in Bangalore
             </div>
-            <div className="container mx-auto w-full md:w-[90%] lg:w-[80%] py-4 px-2 md:px-5">
-                <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-5 px-2 md:px-5 mx-1 md:mx-2">
+            <div className="container mx-auto w-full md:w-[95%] lg:w-[80%] py-4 px-2 md:px-5 " >
+                <div className="flex flex-wrap justify-center md:justify-center gap-3 md:gap-5 px-2 md:px-5 mx-1 md:mx-2">
                     {newdata2.map((val) => (
                         <RestaurantCard key={val.info.id} val={val}></RestaurantCard>
                     ))}
