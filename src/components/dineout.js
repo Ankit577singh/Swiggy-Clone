@@ -20,9 +20,7 @@ export default function Dineout(){
                 }
             </div>
            </div>
-           <div className="mt-12 md:mt-[80px]">
-                <img className="w-full" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png"></img>
-           </div>
+         
            </>
         )
 }

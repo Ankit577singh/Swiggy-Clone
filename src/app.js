@@ -4,6 +4,7 @@ import { BrowserRouter , Router, Routes, Route } from 'react-router';
 // import Restaurent from './components/restaurent';
 import Restaurent from './components/restaurent';
 import RestaurentMenu from './components/restaurentMenu';
+import Search from './components/search';
 
 import Home from './home';
 
@@ -16,6 +17,7 @@ function App(){
                     <Route path='/' element={<Home></Home>}> </Route>
                     <Route path='/restaurant' element={<Restaurent></Restaurent>}></Route>
                     <Route path='/city/bangalore/:id' element={<RestaurentMenu></RestaurentMenu>}></Route>
+                    <Route path='/city/bangalore/:id/search' element={<Search></Search>}></Route>
                 </Routes>
             </BrowserRouter>
         </>

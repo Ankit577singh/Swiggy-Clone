@@ -1,6 +1,6 @@
 export default function GroceriesCard({v}){
     return (
-        <div className="flex flex-col justify-center max-w-[120px] xs:max-w-[140px] sm:max-w-[160px]">
+        <div className="flex flex-col justify-center max-w-[120px] xs:max-w-[140px] sm:max-w-[160px] hover:scale-105  transition">
             <a href={v?.action?.link}>
                 <img 
                     className="w-[120px] h-[140px] xs:w-[140px] xs:h-[160px] sm:w-[160px] sm:h-[180px] object-cover" 

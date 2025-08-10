@@ -1,61 +1,256 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router';
+// import { useState } from 'react';
+import { useState } from 'react';
+// import logo from '../../media/photos/logo.png';
+import logo from '../assets/logo.png'; // adjust path based on file location
 
-export default function Header (){
-    return (
-        <>
-            <header className="bg-[#ff5200] font-serif">
-                {/* Top Navigation */}
-                <div className="flex flex-col md:flex-row justify-between container mx-auto w-full md:w-[90%] lg:w-[80%] px-4 md:px-0 pt-4 pb-4 md:pt-8 md:pb-8 border-b-1 border-white/40">
-                    <div className="flex justify-center md:block mb-4 md:mb-0">
-                        <img className="w-32 md:w-40 h-8 md:h-12" src="https://res.cloudinary.com/dutdah0l9/image/upload/v1720058694/Swiggy_logo_bml6he.png" alt="Swiggy Logo"></img>
-                    </div>
-                    <div className="text-white flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-8 place-items-center text-sm md:text-base">
-                        <a href="https://www.swiggy.com/corporate/" target="_blank" rel="noopener noreferrer">Swiggy Corporate</a>
-                        <a href="https://partner.swiggy.com/login#/swiggy" target="_blank" rel="noopener noreferrer">Partner with us</a>
-                        <a className="border-1 rounded-[12px] py-1 px-2 md:py-3 md:px-4 whitespace-nowrap" href="https://partner.swiggy.com/login#/swiggy" target="_blank" rel="noopener noreferrer">
-                            Get the App <span className="bi bi-arrow-up-right"></span>
-                        </a>
-                        <div>
-                            <span className="bi bi-person px-[3px] py-[2px] m-1 bg-gray-700 text-[20px] md:text-[25px] rounded-[50%]"></span>
-                        </div>
-                    </div>
-                </div>
 
-                {/* Hero Section */}
-                <div className='flex flex-col mx-auto place-items-center text-white pt-8 md:pt-16 pb-8 border-b-1 border-white/40 relative px-4'>
-                    <img className='hidden md:block w-[150px] lg:w-[250px] h-[300px] lg:h-[450px] absolute top-0 left-0' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Veggies_new.png' alt="Veggies"></img>
-                    <img className='hidden md:block w-[150px] lg:w-[250px] h-[300px] lg:h-[450px] absolute top-0 right-0' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png' alt="Sushi"></img>
 
-                    <div className='text-lg md:text-2xl lg:text-[28px] font-semibold w-full md:w-[80%] lg:w-[50%] text-center'>
-                        Order food & groceries. Discover best restaurants. Swiggy it!
-                    </div>
-                    <div className='flex flex-col md:flex-row justify-between w-full md:w-[80%] lg:w-[55%] gap-3 py-3'>
-                       <div className='flex justify-between bg-white text-gray-900 rounded-[5px] p-1 gap-x-1.5 px-2.5 place-items-center w-full'>
-                            <div className='bi bi-geo-alt-fill text-[#ff5200]'></div>
-                            <input className='text-sm md:text-[14px] focus:outline-none w-full' placeholder='Rishikesh Uttrakhand .....'></input>
-                            <div className='bi bi-chevron-down'></div>
-                       </div>
-                        <div className='flex justify-between w-full bg-white text-gray-900 rounded-[5px] p-1 gap-x-1 px-2.5 place-items-center'>
-                            <input className='w-full text-sm md:text-[14px] px-1.5 py-1.5 focus:outline-none' placeholder='Search for Restaurant, item or more'></input>
-                            <div className='bi bi-search text-gray-700'></div>
-                        </div>
-                    </div>
-                </div>
+export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-                {/* Banner Section */}
-                <div className='flex flex-col sm:flex-row container mx-auto justify-center items-center gap-4 p-4'>
-                    <Link to='/restaurant'>
-                        <img className='w-full sm:w-[300px] md:w-[413.87px] h-auto sm:h-[300px] md:h-[381.24px]' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/ec86a309-9b06-48e2-9adc-35753f06bc0a_Food3BU.png' alt="Food"></img>
-                    </Link>
-                    <a href='https://www.swiggy.com/instamart?entryId=1234&entryName=mainTileEntry4&v=1'>
-                        <img className='w-full sm:w-[300px] md:w-[413.87px] h-auto sm:h-[300px] md:h-[381.24px]' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b5c57bbf-df54-4dad-95d1-62e3a7a8424d_IM3BU.png' alt="Instamart"></img>
-                    </a>
-                    <a href='https://www.swiggy.com/instamart?entryId=1234&entryName=mainTileEntry4&v=1'>
-                        <img className='w-full sm:w-[300px] md:w-[413.87px] h-auto sm:h-[300px] md:h-[381.24px]' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b6d9b7ab-91c7-4f72-9bf2-fcd4ceec3537_DO3BU.png' alt="Dine Out"></img>
-                    </a>
-                </div>
-            </header>
-        </>
-    )
+  return (
+    <header className="bg-white  font-sans select-none  border-b border-gray-200">
+      {/* Top Nav Container */}
+      <div className=" mx-auto flex items-center justify-between px-6 py-4 md:py-4 md:px-30 w-full md:w-[90%] lg:w-[100%]  shadow-sm fixed z-100 bg-white">
+        
+        {/* Logo */}
+        <h1 className="text-3xl flex justify-center place-item-center   md:text-4xl font-extrabold tracking-wide text-[#FF6600] select-text">
+          <img className=' w-15 h-15 rounded-[50%] mx-4' src="https://i.postimg.cc/Jz1cjJDw/Food-Delivery-Pin-Icon.png"></img>
+          <p className='place-items-center flex justify-center'>FoodFast</p>
+        </h1>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex gap-6 text-[#333333] text-base items-center">
+          <a href="#" className="flex items-center gap-1 hover:text-[#FF6600] transition-colors font-medium">
+            <span className="bi bi-building" aria-hidden="true"></span>
+            FoodFast Corporate
+          </a>
+          <a href="#" className="flex items-center gap-1 hover:text-[#FF6600] transition-colors font-medium">
+            <span className="bi bi-people" aria-hidden="true"></span>
+            Partner with us
+          </a>
+          <a
+            href="#"
+            className="border border-[#FF6600] hover:bg-[#FF6600]/20 rounded-full py-2 px-6 whitespace-nowrap transition-all text-[#FF6600] font-semibold flex items-center gap-2"
+            aria-label="Get the FoodFast app"
+          >
+            <span className="bi bi-phone" aria-hidden="true"></span>
+            Get the App <span className="bi bi-arrow-up-right"></span>
+          </a>
+          <button
+            aria-label="User Account"
+            className="hover:bg-[#FF6600]/20 p-2 rounded-full transition-colors text-[#FF6600] cursor-pointer flex items-center justify-center text-2xl"
+            type="button"
+          >
+            <span className="bi bi-person" aria-hidden="true"></span>
+          </button>
+        </nav>
+
+        {/* Mobile menu button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle Menu"
+          aria-expanded={mobileMenuOpen}
+          className="md:hidden text-[#FF6600] text-3xl focus:outline-none"
+        >
+          {mobileMenuOpen ? (
+            <span className="bi bi-x-lg" aria-hidden="true"></span>
+          ) : (
+            <span className="bi bi-list" aria-hidden="true"></span>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Menu Panel */}
+      {mobileMenuOpen && (
+        <nav
+          className="md:hidden bg-white border-t border-gray-200 shadow-md pt-16"
+          aria-label="Mobile Primary Navigation"
+        >
+          <ul className="flex flex-col space-y-4 py-6 px-6 text-[#333333] text-base font-medium">
+            <li>
+              <a
+                href="#"
+                className="flex items-center gap-2 hover:text-[#FF6600] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="bi bi-building" aria-hidden="true"></span>
+                FoodFast Corporate
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center gap-2 hover:text-[#FF6600] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="bi bi-people" aria-hidden="true"></span>
+                Partner with us
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center gap-2 border border-[#FF6600] rounded-full py-2 px-6 text-[#FF6600] font-semibold hover:bg-[#FF6600]/20 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Get the FoodFast app"
+              >
+                <span className="bi bi-phone" aria-hidden="true"></span>
+                Get the App
+                <span className="bi bi-arrow-up-right"></span>
+              </a>
+            </li>
+            <li>
+              <button
+                className="flex items-center gap-2 p-2 rounded-full hover:bg-[#FF6600]/20 text-[#FF6600] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="User Account"
+                type="button"
+              >
+                <span className="bi bi-person" aria-hidden="true"></span>
+                Login / Account
+              </button>
+            </li>
+          </ul>
+        </nav>
+      )}
+
+      {/* Hero Section */}
+<section
+  className="flex flex-col items-center  text-[#333333] pt-30 md:pt-45  pb-14 border-b h-[620px] border-gray-200 relative px-6 bg-cover bg-center "
+  aria-labelledby="hero-heading"
+  style={{
+    backgroundImage: "url('https://i.postimg.cc/5ygjJHxv/Food-Delivery-on-the-Go-2.png')",
+  }}
+>
+  <div className="absolute inset-0 bg-white/60"></div> {/* Overlay for readability */}
+
+  <div className="relative z-10 flex flex-col items-center">
+    <h2
+      id="hero-heading"
+      className="text-4xl md:text-5xl lg:text-6xl font-extrabold w-full md:w-[80%] lg:w-[60%] text-center leading-tight mb-10"
+    >
+      Order food & groceries. Discover the best restaurants.{' '}
+      <span className="text-[#FF6600]">FoodFast</span> it!
+    </h2>
+
+    <form
+      className="flex flex-col md:flex-row justify-between w-full md:w-[80%] lg:w-[55%] gap-5"
+      onSubmit={(e) => e.preventDefault()}
+      role="search"
+      aria-label="Search for delivery address or restaurants"
+    >
+      <label htmlFor="address" className="sr-only">
+        Delivery address
+      </label>
+      <div
+        className="flex items-center   bg-white text-[#000000] rounded-full p-4 px-6 shadow-md hover:shadow-lg  hover:bg-[#FF6300]/30  transition-shadow focus-within:ring-2 focus-within:ring-[#FF6600] w-full"
+        tabIndex={-1}
+      >
+        <span className="bi bi-geo-alt-fill text-[#FF6600] mr-3 text-xl md:text-2xl" aria-hidden="true"></span>
+        <input
+          id="address"
+          type="text"
+          className="text-base focus:outline-none w-full bg-transparent placeholder-[#464545]"
+          placeholder="Enter your delivery address"
+          aria-label="Enter your delivery address"
+        />
+        <span className="bi bi-chevron-down text-gray-400 ml-3 text-lg" aria-hidden="true"></span>
+      </div>
+
+      <label htmlFor="search" className="sr-only">
+        Search restaurants or items
+      </label>
+      <div
+        className="flex items-center  bg-white text-[#333333] rounded-full p-4 px-6 shadow-md hover:shadow-lg  hover:bg-[#FF6300]/30  transition-shadow focus-within:ring-2 focus-within:ring-[#FF6600] w-full"
+        tabIndex={-1}
+      >
+        <input
+          id="search"
+          type="search"
+          className="w-full text-base px-3 py-2 focus:outline-none bg-transparent placeholder-[#595959]"
+          placeholder="Search for Restaurant, item or more"
+          aria-label="Search for Restaurant, item or more"
+        />
+        <span className="bi bi-search text-gray-400 ml-3 text-lg" aria-hidden="true"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+      {/* Banner Section */}
+   <section className="flex flex-col sm:flex-row container mx-auto justify-center items-center gap-8 p-6 sm:p-8 lg:p-12">
+  
+  {/* Food Delivery */}
+  <a
+    href="/restaurant"
+    className="group w-full sm:w-[320px] md:w-[420px] flex flex-col items-center"
+  >
+    <div className="relative w-full h-[210px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+      <img
+        src="https://kmphitech.com/wp-content/uploads/2021/08/Food-Delivery-banner-1.svg"
+        alt="Food Delivery"
+        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-[#FF6600]/50 group-hover:bg-[#FF6600]/60 transition-all duration-300"></div>
+    </div>
+    <div className="flex flex-col items-center mt-3">
+      <span className="bi bi-truck text-black text-lg mb-1"></span>
+      <h3 className="text-black font-medium text-sm tracking-wide">
+        Food Delivery
+      </h3>
+    </div>
+  </a>
+
+  {/* FoodFast Mart */}
+  <a
+    href="#"
+    className="group w-full sm:w-[320px] md:w-[420px] flex flex-col items-center"
+  >
+    <div className="relative w-full h-[210px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+      <img
+        src="https://aviaanaccounting.com/wp-content/uploads/2025/07/grocery-delivery-mobile.jpg"
+        alt="FoodFast Mart"
+        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-white/20 group-hover:bg-white/30 border border-[#FF6600] transition-all duration-300"></div>
+    </div>
+    <div className="flex flex-col items-center mt-3">
+      <span className="bi bi-bag-check-fill text-[#FF6600] text-lg mb-1"></span>
+      <h3 className="text-[#FF6600] font-medium text-sm tracking-wide">
+        FoodFast Mart
+      </h3>
+    </div>
+  </a>
+
+  {/* Dine Out */}
+  <a
+    href="#"
+    className="group w-full sm:w-[320px] md:w-[420px] flex flex-col items-center"
+  >
+    <div className="relative w-full h-[210px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+      <img
+        src="https://img.delicious.com.au/4kpSKrnz/w759-h506-cfill/del/2023/02/valentines-day-dinner-source-istock-183457-2.jpg"
+        alt="Dine Out"
+        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-[#333333]/20 group-hover:bg-[#333333]/30 transition-all duration-300"></div>
+    </div>
+    <div className="flex flex-col items-center mt-3">
+      <span className="bi bi-egg-fried text-black text-lg mb-1"></span>
+      <h3 className="text-black font-medium text-sm tracking-wide">
+        Dine Out
+      </h3>
+    </div>
+  </a>
+
+</section>
+
+
+
+    </header>
+  );
 }

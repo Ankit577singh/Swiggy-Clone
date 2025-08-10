@@ -5,6 +5,8 @@ import Food from "./food";
 import Simmer from "./simmer";
 import FilterNav from "./filternav";
 
+import Footer from "./footer";
+
 export default function Restaurent(){
     const [newdata, setnewdata] = useState([]);
     const [newdata2, setnewdata2] = useState([]);
@@ -19,7 +21,7 @@ export default function Restaurent(){
 
     useEffect(()=>{
         async function fetchData(){
-            const ProxyServer = "https://cors-anywhere.herokuapp.com/";
+            const ProxyServer = "https://proxy.corsfix.com/?";
             const swiggiapi = "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.9843304&lng=77.7326944&carousel=true&third_party_vendor=1";
             
             const response = await fetch(ProxyServer+swiggiapi);
@@ -67,6 +69,7 @@ export default function Restaurent(){
                     ))}
                 </div>
             </div>
+            <Footer></Footer>
         </>
     )
 }
