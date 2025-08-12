@@ -19,9 +19,9 @@ export default function RestaurentMenu(){
 
     useEffect(()=>{
         async function api (){
-            const Proxy = "https://proxy.corsfix.com/?";
-            const rmenuapi = `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9843304&lng=77.7326944&restaurantId=${id}&submitAction=ENTER`
-            const response = await fetch(Proxy+rmenuapi);
+            const Proxy = process.env.PROXY_API;
+            const rmenuapi = process.env.SWIGGY_API_ID;
+            const response = await fetch(Proxy+rmenuapi+`=${id}&submitAction=ENTER`);
             const ndata = await response.json();
             const newData = ndata.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
             const nitem = ndata.data?.cards[0];

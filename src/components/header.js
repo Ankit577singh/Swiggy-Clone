@@ -16,8 +16,8 @@ export default function Header() {
       <div className=" mx-auto flex items-center justify-between px-6 py-4 md:py-4 md:px-30 w-full md:w-[90%] lg:w-[100%]  shadow-sm fixed z-100 bg-white">
         
         {/* Logo */}
-        <h1 className="text-3xl flex justify-center place-item-center   md:text-4xl font-extrabold tracking-wide text-[#FF6600] select-text">
-          <img className=' w-15 h-15 rounded-[50%] mx-4' src="https://i.postimg.cc/Jz1cjJDw/Food-Delivery-Pin-Icon.png"></img>
+        <h1 className="text-2xl w-36 flex justify-center place-item-center   md:text-4xl font-extrabold tracking-wide text-[#FF6600] select-text">
+          <img className=' w-12 h-12 rounded-[50%] mx-4' src="https://i.postimg.cc/Jz1cjJDw/Food-Delivery-Pin-Icon.png"></img>
           <p className='place-items-center flex justify-center'>FoodFast</p>
         </h1>
 
@@ -44,7 +44,9 @@ export default function Header() {
             className="hover:bg-[#FF6600]/20 p-2 rounded-full transition-colors text-[#FF6600] cursor-pointer flex items-center justify-center text-2xl"
             type="button"
           >
-            <span className="bi bi-person" aria-hidden="true"></span>
+           <Link to='/login'>
+             <span className="bi bi-person" aria-hidden="true"></span>
+           </Link>
           </button>
         </nav>
 
@@ -53,7 +55,7 @@ export default function Header() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle Menu"
           aria-expanded={mobileMenuOpen}
-          className="md:hidden text-[#FF6600] text-3xl focus:outline-none"
+          className="md:hidden text-[#FF6600] text-3xl  focus:outline-none"
         >
           {mobileMenuOpen ? (
             <span className="bi bi-x-lg" aria-hidden="true"></span>
@@ -66,7 +68,7 @@ export default function Header() {
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
         <nav
-          className="md:hidden bg-white border-t border-gray-200 shadow-md pt-16"
+          className="md:hidden bg-white border-t border-gray-200 shadow-md pt-20"
           aria-label="Mobile Primary Navigation"
         >
           <ul className="flex flex-col space-y-4 py-6 px-6 text-[#333333] text-base font-medium">
@@ -207,7 +209,7 @@ export default function Header() {
 
   {/* FoodFast Mart */}
   <a
-    href="#"
+    href="/restaurant"
     className="group w-full sm:w-[320px] md:w-[420px] flex flex-col items-center"
   >
     <div className="relative w-full h-[210px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
@@ -228,7 +230,7 @@ export default function Header() {
 
   {/* Dine Out */}
   <a
-    href="#"
+    href="/restaurant"
     className="group w-full sm:w-[320px] md:w-[420px] flex flex-col items-center"
   >
     <div className="relative w-full h-[210px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">

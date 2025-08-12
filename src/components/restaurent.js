@@ -21,8 +21,9 @@ export default function Restaurent(){
 
     useEffect(()=>{
         async function fetchData(){
-            const ProxyServer = "https://proxy.corsfix.com/?";
-            const swiggiapi = "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.9843304&lng=77.7326944&carousel=true&third_party_vendor=1";
+
+            const ProxyServer = process.env.PROXY_API;
+            const swiggiapi = process.env.SWIGGY_API;
             
             const response = await fetch(ProxyServer+swiggiapi);
             const data = await response.json();
