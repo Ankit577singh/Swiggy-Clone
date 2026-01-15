@@ -21,7 +21,7 @@ export default function RestaurentMenu(){
         async function api (){
             // const Proxy = process.env.PROXY_API;
             // const rmenuapi = process.env.SWIGGY_API_ID;
-            const response = await fetch(  `${import.meta.env.VITE_BACKEND_URL}/api/menu/${id}`);
+            const response = await fetch(  `${process.env.VITE_BACKEND_URL}/api/menu/${id}`);
             const ndata = await response.json();
             const newData = ndata.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
             const nitem = ndata.data?.cards[0];

@@ -26,7 +26,8 @@ export default function Restaurent(){
             // const swiggiapi = process.env.SWIGGY_API;
             
             // const response = await fetch("http://localhost:5000/api/restaurants");
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/restaurants`);
+            // console.log(import.meta.env.VITE_BACKEND_URL);
+            const response = await fetch(`${process.env.VITE_BACKEND_URL}/api/restaurants`);
             const data = await response.json();
             setnewdata(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
             setnewdata2(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
