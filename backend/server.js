@@ -3,9 +3,15 @@ import cors from "cors";
 import axios from "axios";
 
 const app = express();
-app.use(cors({
-    origin: process.env.FRONTEND_URL
-}));
+
+
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "*",
+    methods: ["GET"],
+  })
+);
+
 
 app.get("/api/restaurants", async (req, res) => {
   try {
@@ -23,6 +29,7 @@ app.get("/api/restaurants", async (req, res) => {
   }
 });
 
+
 app.get("/api/menu/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -35,8 +42,6 @@ app.get("/api/menu/:id", async (req, res) => {
         },
       }
     );
-    // console.log(response);
-
 
     res.json(response.data);
   } catch (error) {
@@ -44,6 +49,8 @@ app.get("/api/menu/:id", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log("Backend running on port 5000");
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Backend running on port ${PORT}`);
 });
