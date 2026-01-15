@@ -22,10 +22,11 @@ export default function Restaurent(){
     useEffect(()=>{
         async function fetchData(){
 
-            const ProxyServer = process.env.PROXY_API;
-            const swiggiapi = process.env.SWIGGY_API;
+            // const ProxyServer = process.env.PROXY_API;
+            // const swiggiapi = process.env.SWIGGY_API;
             
-            const response = await fetch(ProxyServer+swiggiapi);
+            // const response = await fetch("http://localhost:5000/api/restaurants");
+            const response = await fetch(`${process.env.BACKEND_URL}/api/restaurants`);
             const data = await response.json();
             setnewdata(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
             setnewdata2(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
